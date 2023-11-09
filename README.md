@@ -1,0 +1,1 @@
+# Mavzu: props & props yordamida komponentlarga ma'lumot yuborish
