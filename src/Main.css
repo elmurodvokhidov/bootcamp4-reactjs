@@ -1,0 +1,178 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.global_btn {
+    padding: 12px 27px;
+    border-radius: 40px;
+    font-size: 15px;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.input {
+    width: fit-content;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    padding: 5px 10px;
+}
+
+.input input {
+    border: none;
+    outline: none;
+    margin-left: 5px;
+}
+
+
+.navbar {
+    text-align: center;
+    background-color: white;
+}
+
+.nav_yuqori {
+    padding: 17px 0;
+    background: #efefef;
+}
+
+.nav_yuqori p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.nav_yuqori a {
+    color: #333;
+}
+
+.nav_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    gap: 40px;
+    border-bottom: 1px solid #efefef;
+}
+
+.nav_center .logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-right: 100px;
+}
+
+.nav_center .logo h1 {
+    color: #f13c6e;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.nav_center .inp {
+    display: flex;
+    gap: 10px;
+    margin-right: 50px;
+    border-radius: 40px;
+    padding: 10px 10px 10px 20px;
+    background-color: #efefef;
+}
+
+.nav_center .inp input {
+    border: none;
+    outline: none;
+    background-color: #33333300;
+}
+
+.nav_center p {
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.btn {
+    border-radius: 40px;
+    padding: 12px 25px;
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+    background-color: rgba(127, 255, 212, 0);
+}
+
+.nav_past p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 30px 0;
+    user-select: none;
+}
+
+.nav_past a {
+    color: #000;
+}
+
+.section2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    padding: 80px 0;
+    background-color: #efefef;
+}
+
+.s2_top {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.title {
+    color: #000;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.s2_wrapper {
+    display: flex;
+    text-align: center;
+    gap: 30px;
+}
+
+.s2_card {
+    width: 255px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 25px 30px;
+    background-color: #fff;
+}
+
+.s2_card h3 {
+    color: #333;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.s2_card h2 {
+    color: #000;
+    font-size: 21px;
+    font-weight: 500;
+    letter-spacing: 1.05px;
+}
+
+.card_btn {
+    border: none;
+    color: white;
+    padding: 10px 40px;
+    border-radius: 30px;
+    background: #f13c6e;
+}
