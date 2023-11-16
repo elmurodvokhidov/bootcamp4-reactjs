@@ -2,9 +2,16 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: cursive;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 .navbar {
+    position: fixed;
+    z-index: 10;
     width: 100%;
     padding: 10px 0;
     display: flex;
@@ -17,9 +24,178 @@
 .navbar a {
     color: white;
     font-size: 50px;
+    position: relative;
+    text-decoration: none;
 }
 
+.navbar a:nth-child(2) span {
+    position: absolute;
+    top: 2px;
+    right: -7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
+    border-radius: 50%;
+    background-color: red;
+}
 
 a.active {
     color: lightblue;
+}
+
+.home {
+    display: grid;
+    grid-template-columns: repeat(4, 300px);
+    justify-content: space-between;
+    gap: 50px;
+    padding: 120px 50px;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.card figure {
+    width: 200px;
+    height: 150px;
+    background: #000;
+    margin: auto;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    scale: 1.2;
+    object-fit: cover;
+}
+
+.add_btn {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: none;
+    background: blueviolet;
+    position: fixed;
+    color: white;
+    bottom: 20px;
+    cursor: pointer;
+    right: 20px;
+    font-size: 50px;
+}
+
+button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    background: #2A2A2A;
+}
+
+.btn_group,
+.action_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 20px;
+}
+
+.action_btn {
+    gap: 25px;
+}
+
+.likeBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #00000000;
+    color: red;
+}
+
+.cartBtn {
+    color: cadetblue;
+    background: #00000000;
+}
+
+.btn_group {
+    padding: 0 20px;
+}
+
+.inc {
+    background: darkblue;
+}
+
+.dec {
+    background: darkred;
+}
+
+.btn_group span {
+    font-size: 40px;
+}
+
+.addBtn {
+    width: 100%;
+    border-radius: 0;
+    margin: 40px 0 0;
+    padding: 30px;
+}
+
+.addInfo {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.addInfo form {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.inputGroup input {
+    font-size: 22px;
+    border: 1px solid silver;
+    padding: 10px;
+    outline-color: blueviolet;
+}
+
+.inputGroup label {
+    font-size: 22px;
+}
+
+.discount {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    z-index: 9;
+    font-size: 25px;
+    color: lightseagreen;
 }

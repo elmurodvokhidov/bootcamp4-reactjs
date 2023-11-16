@@ -2,35 +2,34 @@ import React from 'react'
 import { ContextData } from '../context/ContextData'
 import { useContext } from 'react';
 import { MdFavoriteBorder, MdOutlineShoppingCart } from "react-icons/md";
+import { FaPlus } from "react-icons/fa6";
 
 function Home() {
-  const { info, addFun } = useContext(ContextData)
+  const { info, addFun, increment, likeFun } = useContext(ContextData)
   return (
-    <div>
+    <div className='home'>
       {
         info.map(item => (
           <div className="card" key={item.id}>
-            <img src={item.img} alt={item.title} />
+            <h1 className='discount'>{item.discount}% Off</h1>
+            <figure><img src={item.img} alt={item.title} /></figure>
             <h1>{item.title}</h1>
-            <h2>{item.price}</h2>
+            <div className='action_btn'>
+              <h2><span>${Math.round(item.price - ((item.price / 100) * item.discount))}</span> <del style={{ color: 'silver' }}>${item.price}</del></h2>
+              <button onClick={() => likeFun(item)} className='likeBtn'><MdFavoriteBorder /></button>
+              <button className='cartBtn'><MdOutlineShoppingCart /></button>
+            </div>
 
             <div className="btn_group">
-              <div className="count_btn">
-                <button>+</button>
-                <span>{item.count}</span>
-                <button>-</button>
-              </div>
-
-              <div className="action_btn">
-                <button><MdFavoriteBorder /></button>
-                <button><MdOutlineShoppingCart /></button>
-              </div>
+              <button className='dec'>-</button>
+              <span>{item.count + 1}</span>
+              <button onClick={() => increment(item)} className='inc'>+</button>
             </div>
           </div>
         ))
       }
 
-      <button className="add_btn" onClick={addFun}>➕</button>
+      <button className="add_btn" onClick={addFun}><FaPlus /></button>
     </div>
   )
 }

@@ -13,6 +13,7 @@ function ContextFunction({ children }) {
             title: "Fresh organic apricot",
             price: 15,
             count: 0,
+            discount: 25,
         },
         {
             id: 2,
@@ -20,6 +21,7 @@ function ContextFunction({ children }) {
             title: "Cucumber",
             price: 105,
             count: 0,
+            discount: 25,
         },
         {
             id: 3,
@@ -27,17 +29,48 @@ function ContextFunction({ children }) {
             title: "Hazelnuts filbert nut",
             price: 51,
             count: 0,
+            discount: 25,
+        },
+        {
+            id: 4,
+            img: "./img/s1.png",
+            title: "Fresh organic apricot",
+            price: 20,
+            count: 0,
+            discount: 25,
         },
     ]);
+
+    const [like, setLike] = useState([]);
 
     function addFun() {
         addInfo('addinfo')
     };
 
+    function increment(item) {
+        setInfo(info.map(element => (
+            element.id === item.id ? { ...element, count: element.count + 1 } : element
+        )))
+    };
+
+    function likeFun(item) {
+        // Agar like-da ma'lumot bo'lsa
+        if (like) {
+            setLike([...like, item])
+        }
+        // Agar like-da ma'lumot yo'q bo'lsa
+        else {
+            setLike([item])
+        }
+    };
+
     return (
         <ContextData.Provider value={{
             info,
-            addFun
+            addFun,
+            increment,
+            like,
+            likeFun,
         }}>
             {children}
         </ContextData.Provider>
