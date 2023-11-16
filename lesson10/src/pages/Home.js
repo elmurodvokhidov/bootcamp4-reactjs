@@ -1,11 +1,11 @@
 import React from 'react'
 import { ContextData } from '../context/ContextData'
 import { useContext } from 'react';
-import { MdFavoriteBorder, MdOutlineShoppingCart } from "react-icons/md";
+import { MdFavoriteBorder, MdOutlineFavorite, MdOutlineShoppingCart } from "react-icons/md";
 import { FaPlus } from "react-icons/fa6";
 
 function Home() {
-  const { info, addFun, increment, likeFun } = useContext(ContextData)
+  const { info, addFun, increment, likeFun, like } = useContext(ContextData)
   return (
     <div className='home'>
       {
@@ -16,7 +16,7 @@ function Home() {
             <h1>{item.title}</h1>
             <div className='action_btn'>
               <h2><span>${Math.round(item.price - ((item.price / 100) * item.discount))}</span> <del style={{ color: 'silver' }}>${item.price}</del></h2>
-              <button onClick={() => likeFun(item)} className='likeBtn'><MdFavoriteBorder /></button>
+              <button onClick={() => likeFun(item)} className='likeBtn'>{like.filter(element => element.id === item.id).length === 0 ? <MdFavoriteBorder /> : <MdOutlineFavorite />}</button>
               <button className='cartBtn'><MdOutlineShoppingCart /></button>
             </div>
 
