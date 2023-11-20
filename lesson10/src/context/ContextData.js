@@ -41,6 +41,14 @@ function ContextFunction({ children }) {
         },
     ]);
 
+    const [input, setInput] = useState({
+        id: '',
+        title: '',
+        price: 0,
+        count: 0,
+        discount: 15,
+    });
+
     const [like, setLike] = useState([]);
 
     function addFun() {
@@ -75,6 +83,17 @@ function ContextFunction({ children }) {
         }
     };
 
+    function inputFun(e) {
+        setInput({
+            ...input,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    function addFunction() {
+        setInfo([...info, input])
+    };
+
     return (
         <ContextData.Provider value={{
             info,
@@ -83,6 +102,8 @@ function ContextFunction({ children }) {
             decrement,
             like,
             likeFun,
+            inputFun,
+            addFunction
         }}>
             {children}
         </ContextData.Provider>

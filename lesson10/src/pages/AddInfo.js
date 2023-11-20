@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ContextData } from '../context/ContextData'
 
 function AddInfo() {
+  const { inputFun, addFunction } = useContext(ContextData);
+
   return (
     <div className='home addInfo'>
       <form>
-        <div className="inputGroup">
+        <div onInput={inputFun} className="inputGroup">
           <label htmlFor="title">Title</label>
           <input type="text" name="title" id="title" />
         </div>
-        <div className="inputGroup">
+        <div onInput={inputFun} className="inputGroup">
           <label htmlFor="price">Price</label>
           <input type="number" name="price" id="price" />
         </div>
@@ -17,7 +20,7 @@ function AddInfo() {
           <input type="file" name="img" id="img" />
         </div>
 
-        <button type='button' className='addBtn'>Add</button>
+        <button onClick={addFunction} type='button' className='addBtn'>Add</button>
       </form>
     </div>
   )
