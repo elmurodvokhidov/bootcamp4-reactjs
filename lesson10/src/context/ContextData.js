@@ -53,14 +53,25 @@ function ContextFunction({ children }) {
         )))
     };
 
+    function decrement(item) {
+        setInfo(info.map(element => (
+            element.id === item.id && element.count > 0 ? { ...element, count: element.count - 1 } : element
+        )))
+    };
+
     function likeFun(item) {
-        // Agar like-da ma'lumot bo'lsa
-        if (like) {
-            setLike([...like, item])
+        if (like.filter(element => element.id === item.id).length === 0) {
+            // Agar like-da ma'lumot bo'lsa
+            if (like) {
+                setLike([...like, item])
+            }
+            // Agar like-da ma'lumot yo'q bo'lsa
+            else {
+                setLike([item])
+            }
         }
-        // Agar like-da ma'lumot yo'q bo'lsa
         else {
-            setLike([item])
+            setLike(like.filter(element => element.id !== item.id))
         }
     };
 
@@ -69,6 +80,7 @@ function ContextFunction({ children }) {
             info,
             addFun,
             increment,
+            decrement,
             like,
             likeFun,
         }}>
