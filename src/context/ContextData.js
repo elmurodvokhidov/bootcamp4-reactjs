@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { json, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 export const ContextData = React.createContext();
@@ -16,6 +16,9 @@ function ContextFunc({ children }) {
     };
 
     const homeNavigate = useNavigate();
+    const addNavigate = useNavigate();
+    const [foo, setFoo] = useState(true);
+    const [search, setSearch] = useState('');
 
     const [input, setInput] = useState({
         username: '',
@@ -23,6 +26,15 @@ function ContextFunc({ children }) {
         img: '',
         id: '',
     });
+
+    function clear() {
+        setInput({
+            username: '',
+            password: '',
+            img: '',
+            id: '',
+        })
+    }
 
     function inputFunc(e) {
         setInput({
@@ -39,21 +51,33 @@ function ContextFunc({ children }) {
     };
 
     function addFunction() {
-        if (localStorage.getItem('users')) {
-            localStorage.setItem('users', JSON.stringify([
-                ...JSON.parse(localStorage.getItem('users')), { ...input, id: new Date().getTime() }
-            ]))
+        if (input.id === '') {
+            // ma'lumot qo'shish
+            if (localStorage.getItem('users')) {
+                localStorage.setItem('users', JSON.stringify([
+                    ...JSON.parse(localStorage.getItem('users')), { ...input, id: new Date().getTime() }
+                ]))
+            }
+            else {
+                localStorage.setItem('users', JSON.stringify([{ ...input, id: new Date().getTime() }]))
+            }
         }
         else {
-            localStorage.setItem('users', JSON.stringify([{ ...input, id: new Date().getTime() }]))
+            // ma'lumot tahrirlash
+            localStorage.setItem('users', JSON.stringify(
+                users.map(item => item.id === input.id ? input : item)
+            ))
         }
         homeNavigate('/')
+        clear();
         refresh();
     }
 
     // edit function
     function editFun(value) {
-        console.log(value)
+        setInput(value);
+        addNavigate('add');
+        setFoo(false);
     }
 
     // delete function
@@ -90,6 +114,11 @@ function ContextFunc({ children }) {
             addFunction,
             editFun,
             delFun,
+            input,
+            foo,
+            setFoo,
+            search,
+            setSearch,
         }}>
             {children}
         </ContextData.Provider>
