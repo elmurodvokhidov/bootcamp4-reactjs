@@ -4,7 +4,7 @@ import { useContext } from "react"
 import { ContextData } from "../context/ContextData"
 
 function Home() {
-    const { users } = useContext(ContextData);
+    const { users, editFun, delFun } = useContext(ContextData);
 
     return (
         <div className="home">
@@ -16,10 +16,10 @@ function Home() {
                 </footer>
             </header>
             <main>
-                <table>
+                <table border='1px solid black' cellSpacing="0">
                     <thead>
                         <tr>
-                            <th>num</th>
+                            <th>id</th>
                             <th>image</th>
                             <th>username</th>
                             <th>password</th>
@@ -28,18 +28,18 @@ function Home() {
                     </thead>
                     <tbody>
                         {
-                            users.map((value, index) => (
+                            users.length > 0 ? users.map((value, index) => (
                                 <tr key={index}>
                                     <td>{value.id}</td>
-                                    <td>{value.img}</td>
+                                    <td><img style={{ width: '50px', height: '50px', borderRadius: '50%' }} src={value.img} alt={value.username} /></td>
                                     <td>{value.username}</td>
                                     <td>{value.password}</td>
                                     <td>
-                                        <button>edit</button>
-                                        <button>delete</button>
+                                        <button onClick={() => editFun(value)} style={{ backgroundColor: 'blue', color: 'white' }}>edit</button>
+                                        <button onClick={() => delFun(value.id)} style={{ backgroundColor: 'red', color: 'white' }}>delete</button>
                                     </td>
                                 </tr>
-                            ))
+                            )) : <tr><td colSpan={10}><h1 style={{color: 'red'}}>Information not found!</h1></td></tr>
                         }
                     </tbody>
                 </table>
