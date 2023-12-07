@@ -91,7 +91,7 @@ function ContextFunction({ children }) {
     };
 
     function addFunction() {
-        setInfo([...info, input])
+        setInfo([...info, {...input, id: new Date().getTime()}])
     };
 
     return (

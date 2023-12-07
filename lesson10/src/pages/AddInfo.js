@@ -7,13 +7,13 @@ function AddInfo() {
   return (
     <div className='home addInfo'>
       <form>
-        <div onInput={inputFun} className="inputGroup">
+        <div className="inputGroup">
           <label htmlFor="title">Title</label>
-          <input type="text" name="title" id="title" />
+          <input onInput={inputFun} type="text" name="title" id="title" />
         </div>
         <div onInput={inputFun} className="inputGroup">
           <label htmlFor="price">Price</label>
-          <input type="number" name="price" id="price" />
+          <input onInput={inputFun} type="number" name="price" id="price" />
         </div>
         <div className="inputGroup">
           <label htmlFor="img">Image</label>
