@@ -1,0 +1,65 @@
+.card {
+    max-width: 290px !important;
+    height: 480px !important;
+    border-radius: 6px !important;
+    position: relative !important;
+    animation: skeleton 1.5s linear infinite alternate;
+}
+
+.img {
+    width: 98% !important;
+    height: 250px !important;
+    margin: 15px auto !important;
+    animation: skeleton 1s linear infinite alternate;
+}
+
+.title {
+    width: 100px !important;
+    height: 20px !important;
+    margin: 0 0 0 2px;
+    animation: skeleton 1s linear infinite alternate;
+}
+
+.text {
+    width: 98% !important;
+    height: 12px !important;
+    margin: 15px 0 0 2px;
+    animation: skeleton 1s linear infinite alternate;
+}
+
+.text::after {
+    content: "";
+    position: absolute;
+    width: 90% !important;
+    height: 12px !important;
+    margin: 25px 0 0 0;
+    animation: skeleton 1s linear infinite alternate;
+}
+
+.price {
+    width: 80px;
+    height: 30px;
+    margin: 90px 0 2px;
+    animation: skeleton 1s linear infinite alternate;
+}
+
+.price::after {
+    content: "";
+    width: 50px;
+    height: 40px;
+    position: absolute;
+    right: 45px;
+    bottom: 28px;
+    border-radius: 6px;
+    animation: skeleton 1s linear infinite alternate;
+}
+
+@keyframes skeleton {
+    0% {
+        background-color: hsl(200, 20%, 60%);
+    }
+
+    100% {
+        background-color: hsl(200, 20%, 95%);
+    }
+}
