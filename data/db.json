@@ -1,25 +1,9 @@
 {
   "users": [
     {
-      "id": "NDUxN0NJYjM0MjAx4517CIb34201"
-    },
-    {
-      "id": "MjA3OEJndTM3MTA42078Bgu37108"
-    },
-    {
-      "id": "ODc3NVB4VzE3ODM08775PxW17834",
+      "id": "MjU0M1liTjUzNDIw2543YbN53420",
       "name": "michael",
-      "age": "32"
-    },
-    {
-      "id": "NTk1NkRWWDE4MTQ45956DVX18148",
-      "name": "sadasd",
-      "age": "2432432"
-    },
-    {
-      "id": "ODU3NGZJRTU5NzQ=8574fIE5974",
-      "name": "sadasd",
-      "age": "2432432"
+      "age": "505"
     }
   ]
 }

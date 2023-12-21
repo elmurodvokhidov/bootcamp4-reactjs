@@ -55,6 +55,14 @@ function App() {
     }
   }
 
+  function deleteFunction(id) {
+    const isConfirm = window.confirm("Do you want to delete it?");
+    if (isConfirm) {
+      axios.delete(`http://localhost:5000/users/${id}`);
+      getUsers();
+    }
+  }
+
   return (
     <div className="App">
       <input
@@ -72,14 +80,20 @@ function App() {
         onChange={(e) => getUser(e)}
       />
       <button onClick={addFunction}>add</button>
-      <ol>
+      <div>
         {
           error ? <h1>{error}</h1> :
-            users?.map(item => (
-              <li style={{ cursor: 'pointer' }} onClick={() => editFunction(item)} key={item.id}>{item.name}</li>
+            users?.map((item, index) => (
+              <div style={{ display: "flex", alignItems: "center", gap: "20px" }} key={item.id}>
+                <h4>{index + 1}.</h4>
+                <h4>{item.name}</h4>
+                <h4>{item.age}</h4>
+                <button onClick={() => editFunction(item)}>edite</button>
+                <button onClick={() => deleteFunction(item.id)}>delete</button>
+              </div>
             ))
         }
-      </ol>
+      </div>
     </div>
   );
 }
