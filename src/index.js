@@ -6,10 +6,12 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import authslice from './slice/authslice';
+import articleslice from './slice/articleslice';
 
 const store = configureStore({
   reducer: {
-    auth: authslice
+    auth: authslice,
+    articles: articleslice
   }
 });
 

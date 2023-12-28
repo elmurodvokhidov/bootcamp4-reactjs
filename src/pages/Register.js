@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function Register() {
-    const { isLoading, isLogged } = useSelector(state => state.auth)
+    const { isLoading, isLogged } = useSelector(state => state.auth);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
