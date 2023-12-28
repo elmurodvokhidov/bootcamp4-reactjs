@@ -22,13 +22,6 @@ function Register() {
         })
     };
 
-    useEffect(() => {
-        if (isLogged) {
-            navigate("/")
-        }
-    }, [isLogged, navigate]);
-
-
     async function handleRegister(e) {
         e.preventDefault();
         dispatch(loginStart());
@@ -39,6 +32,12 @@ function Register() {
             dispatch(loginError(error.response.data.errors));
         }
     };
+
+    useEffect(() => {
+        if (isLogged) {
+            navigate("/")
+        }
+    }, [isLogged, navigate]);
 
     return (
         <div className="row justify-content-center align-items-center vh-100">

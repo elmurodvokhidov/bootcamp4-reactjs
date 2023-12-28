@@ -11,13 +11,14 @@ const AuthSlice = createSlice({
     name: "auth",
     initialState,
     reducers: {
-        loginStart: (state, action) => {
+        loginStart: (state) => {
             state.isLoading = true
         },
         loginSuccess: (state, action) => {
             state.isLogged = true
             state.isLoading = false
             state.user = action.payload
+            localStorage.setItem("token", action.payload.token);
         },
         loginError: (state, action) => {
             state.error = action.payload
