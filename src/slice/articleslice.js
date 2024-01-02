@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     isLoading: false,
     isError: null,
-    articles: []
+    articles: [],
+    storedArticle: null
 };
 
 const ArticleSlice = createSlice({
@@ -20,6 +21,10 @@ const ArticleSlice = createSlice({
         articleError: (state, action) => {
             state.isLoading = false
             state.isError = action.payload
+        },
+        getArticle: (state, action) => {
+            state.isLoading = false
+            state.storedArticle = action.payload
         }
     }
 });
@@ -27,6 +32,7 @@ const ArticleSlice = createSlice({
 export const {
     articleStart,
     articleSuccess,
-    articleError
+    articleError,
+    getArticle
 } = ArticleSlice.actions;
 export default ArticleSlice.reducer;

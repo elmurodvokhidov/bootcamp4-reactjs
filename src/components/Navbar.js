@@ -15,6 +15,9 @@ function Navbar() {
                             isLogged ?
                                 <>
                                     <li className="nav-item">
+                                        <Link className="nav-link active" aria-current="page" to={"create"}>Create</Link>
+                                    </li>
+                                    <li className="nav-item">
                                         <Link className="nav-link active" aria-current="page">{user.username.length > 5 ? user.username.slice(0, 8) + "..." : user.username}</Link>
                                     </li>
                                     <li className="nav-item">

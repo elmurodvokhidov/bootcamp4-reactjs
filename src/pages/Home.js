@@ -2,11 +2,13 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { articleError, articleSuccess } from '../slice/articleslice';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
     const { articles } = useSelector(state => state.articles);
     const { user } = useSelector(state => state.auth);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function getArticles() {
@@ -36,9 +38,9 @@ function Home() {
                                             <div className="btn-group">
                                                 <button type="button" className="btn btn-sm btn-outline-secondary">View</button>
                                                 {
-                                                    article.author.username === user.username ?
+                                                    article.author.username === user?.username ?
                                                         <>
-                                                            <button type="button" className="btn btn-sm btn-outline-success">Edit</button>
+                                                            <button onClick={() => navigate(`edit/${article.slug}`)} type="button" className="btn btn-sm btn-outline-success">Edit</button>
                                                             <button type="button" className="btn btn-sm btn-outline-danger">Delete</button>
                                                         </> : null
                                                 }

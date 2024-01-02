@@ -7,6 +7,8 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "./slice/authslice";
+import CreateArticle from "./pages/CreateArticle";
+import Edit from "./pages/Edit";
 
 function App() {
   const dispatch = useDispatch();
@@ -37,6 +39,8 @@ function App() {
         <Route index element={<Home />} />
         <Route path="register" element={<Register />} />
         <Route path="login" element={<Login />} />
+        <Route path="create" element={<CreateArticle />} />
+        <Route path="edit/:slug" element={<Edit />} />
       </Routes>
     </div>
   );
