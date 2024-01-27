@@ -46,6 +46,7 @@ const initialState = {
             discount: 15,
         },
     ],
+    search: ""
 }
 
 const userSlice = createSlice({
@@ -61,6 +62,10 @@ const userSlice = createSlice({
         },
         deleteUser: (state, action) => {
             state.users = state.users.filter(item => item.id !== action.payload)
+        },
+        searchUser: (state, action) => {
+            console.log(action.payload);
+            state.search = action.payload;
         }
     }
 });
@@ -69,5 +74,6 @@ export const {
     addNewUser,
     updateUser,
     deleteUser,
+    searchUser,
 } = userSlice.actions;
 export default userSlice.reducer;
